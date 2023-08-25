@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Exercise 01</title>
+</head>
+<style>
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        font-size: 20px;
+        padding: 14px 10px 14px 40px;
+        background-color: #eee;
+    }
+    li:nth-child(odd){
+        background-color: #f9f9f9;
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>To Do List</h2>
+        <input type="text" placeholder="Enter a task..." id="task">
+        <button onclick="addListItem()">Add</button>
+        <ul id="list">
+            <li>Pay bills</li>
+            <li>Read a book</li>
+            <li>Meet Anna</li>
+            <li>Wash dishes</li>
+        </ul>
+    </div>
+    <script>
+        function addListItem() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("task").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("list").appendChild(li);
+            }
+            document.getElementById("task").value = "";
+        }
+    </script>
+</body>
+</html>
